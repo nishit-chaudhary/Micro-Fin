@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Microfin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./styles/landingPage.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <ul>
+                <li><a href="./landingPage.html">Home</a></li>
+                <li><a href="./index.html">DashBoard</a></li>
+                <li><a href="./stats.html">Statistics</a></li>
+                <li><a href="./outOfPool.html">Out of Pool</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="parent-container">
+        
+        <div class="heading-container">
+            <h1 class="main-heading">MicroFin</h1>
+            <h3 class="main-subheading">Micro-Finance for Rural Areas</h3>
+            <hr>
+            <button id="btnConnected" class="btn-connected"><strong>Disconnected</strong></button>
+        </div>
+        <div class="btnContainer">
+            <button id="btnAddInitialMembers" class="btn">Add Initial Members</button>
+            <button id="btnMemberValidation" class="btn">Member Validation</button>
+            <button id="btnAddMoney" class="btn">Add Money</button>
+            <button id="btnRequestLoan" class="btn">Request Loan</button>
+            <button id="btnValidateLoan" class="btn">Validate Loan Payment</button>
+            <button id="btnValidatePayment" class="btn">Validate Money Lent</button>
+        </div>
+
+
+
+        <div id="formContainer" class="form-container">
+
+            <div id="formAddInitialMembers" class="form">
+                <h2>Initial Members</h2>
+                <hr>
+
+                <label> Aadhar ID :</label> <br /> <input type="text" id="Uaadh" placeholder="Aadhar ID">
+
+                <button id="addInit">Add</button>
+            </div>
+
+            <div id="formMemberValidation" class="form">
+                <h2>Member Validation</h2>
+                <hr>
+                <label> Aadhar ID: </label> <br /><input type="text" id="Uaadh" placeholder="Aadhar ID">
+                <label> User Address :</label> <br /><input type='text' id='Uaadr' value="0x00"
+                    placeholder="User Aadhar">
+                <button id="adval">Validate Member</button>
+            </div>
+
+            <div id="formAddMoney" class="form">
+                <h2>Deposit to Pool</h2>
+                <hr>
+                <label> Deposition Amount :</label> <input type="text" id="poolDep" placeholder="Pool Deposit">
+                <button id="depol">Deposit</button>
+            </div>
+
+            <div id="formRequestLoan" class="form">
+                <h2>Request Loan</h2>
+                <hr>
+                <label> Amount Requested :</label> <input type="text" id="AmtReq" placeholder="Amount Requested">
+                <button id="lonreq">Request Loan</button>
+            </div>
+            <div id="formvalidateLoanPayment" class="form">
+                <h2>Validate Loan Payment</h2>
+                <hr>
+                <label> Transaction ID :</label> <input type="text" id="txLoanPayment" placeholder="Transaction ID">
+                <button id="lonvalidate">Verify</button>
+            </div>
+            <div id="formvalidateMoneyLent" class="form">
+                <h2>Validate Money Lent</h2>
+                <hr>
+                <label> Transaction ID :</label> <input type="text" id="txMoneyLent" placeholder="Transaction ID">
+                <button id="moneyvalidate">Verify</button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        // Get the buttons and form container
+        var btnAddInitialMembers = document.getElementById('btnAddInitialMembers');
+        var btnMemberValidation = document.getElementById('btnMemberValidation');
+        var btnAddMoney = document.getElementById('btnAddMoney');
+        var btnRequestLoan = document.getElementById('btnRequestLoan');
+        var btnValidateLoan = document.getElementById('btnValidateLoan');
+        var btnValidatePayment = document.getElementById('btnValidatePayment');
+
+        var formContainer = document.getElementById('formContainer');
+
+        // Add click event listeners to the buttons
+        btnAddInitialMembers.addEventListener('click', function () {
+            showForm('formAddInitialMembers');
+        });
+
+        btnMemberValidation.addEventListener('click', function () {
+            showForm('formMemberValidation');
+        });
+
+        btnAddMoney.addEventListener('click', function () {
+            showForm('formAddMoney');
+        });
+
+        btnRequestLoan.addEventListener('click', function () {
+            showForm('formRequestLoan');
+        });
+
+        btnValidateLoan.addEventListener('click', function () {
+            showForm('formvalidateLoanPayment');
+        });
+
+        btnValidatePayment.addEventListener('click', function () {
+            showForm('formvalidateMoneyLent');
+        });
+
+
+        // Function to show the selected form and hide other forms
+        function showForm(formId) {
+            // Hide all forms
+            var forms = formContainer.getElementsByClassName('form');
+            for (var i = 0; i < forms.length; i++) {
+                forms[i].classList.remove('show');
+            }
+
+            // Show the selected form
+            var formToShow = document.getElementById(formId);
+            formToShow.classList.add('show');
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
