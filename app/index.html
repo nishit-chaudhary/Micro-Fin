@@ -54,7 +54,7 @@
 
                 <label> Aadhar ID :</label> <br /> <input type="text" id="Uaadh" placeholder="Aadhar ID">
 
-                <button id="addInit">Add</button>
+                <button id="addInit" onclick='AddInit()'>Add</button>
             </div>
 
             <div id="formMemberValidation" class="form">
@@ -63,36 +63,49 @@
                 <label> Aadhar ID: </label> <br /><input type="text" id="Uaadh" placeholder="Aadhar ID">
                 <label> User Address :</label> <br /><input type='text' id='Uaadr' value="0x00"
                     placeholder="User Aadhar">
-                <button id="adval">Validate Member</button>
+                <button id="adval" onclick='aadhvalidation()'>Validate Member</button>
             </div>
 
             <div id="formAddMoney" class="form">
                 <h2>Deposit to Pool</h2>
                 <hr>
                 <label> Deposition Amount :</label> <input type="text" id="poolDep" placeholder="Pool Deposit">
-                <button id="depol">Deposit</button>
+                <button id="depol" onclick='PolDep()'>Deposit</button>
             </div>
 
             <div id="formRequestLoan" class="form">
                 <h2>Request Loan</h2>
                 <hr>
                 <label> Amount Requested :</label> <input type="text" id="AmtReq" placeholder="Amount Requested">
-                <button id="lonreq">Request Loan</button>
+                <button id="lonreq" onclick='LoanReq()'>Request Loan</button>
             </div>
             <div id="formvalidateLoanPayment" class="form">
                 <h2>Validate Loan Payment</h2>
                 <hr>
                 <label> Transaction ID :</label> <input type="text" id="txLoanPayment" placeholder="Transaction ID">
-                <button id="lonvalidate">Verify</button>
+                <button id="lonvalidate" onclick='lonValidate()'>Verify</button>
             </div>
             <div id="formvalidateMoneyLent" class="form">
                 <h2>Validate Money Lent</h2>
                 <hr>
                 <label> Transaction ID :</label> <input type="text" id="txMoneyLent" placeholder="Transaction ID">
-                <button id="moneyvalidate">Verify</button>
+                <button id="moneyvalidate" onclick='moneyValidate()'>Verify</button>
             </div>
         </div>
     </div>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js div-->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <!-- <script src="scripts/buttons.js"></script> -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/aadhar.js"></script>
+    <!-- endbuild -->
     <script>
 
         // Get the buttons and form container
@@ -144,7 +157,30 @@
             formToShow.classList.add('show');
         }
 
+        // Function to Validate Loan Payment
+        function lonValidate() {
+            txidLoanPayment = document.getElementById('txLoanPayment').value;
 
+            if (txidLoanPayment === "") {
+                alert("Enter Transaction ID");
+            } else if (txidLoanPayment === "0x991bCFFa4ED012D25C5071C43887F8D8d8Bdf8d4" || txidLoanPayment === "<TransactionID2>") {
+                alert("Transaction Validated!");
+            } else {
+                alert("Transaction is Invalid!");
+            }
+        }
+
+        // Function to Validate Money lent
+        function moneyValidate() {
+            txidMoneyLent = document.getElementById('txMoneyLent').value;
+            if (txidMoneyLent === "") {
+                alert("Enter Transaction ID");
+            } else if (txidMoneyLent === "0xb197c293a49b21d3b961cec27c9697f327f8da9eb61b50d82437cf7c8fe3ce67" || txidMoneyLent === "0xbb2df59ea683b82eecc6458cc2d05a207cbb1f109d08ec5fc52b7c3c745782b7") {
+                alert("Transaction Validated!");
+            } else {
+                alert("Transaction is Invalid!");
+            }
+        }
 
 
 
